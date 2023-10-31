@@ -40,18 +40,29 @@
             "price"=>"$29.00"),
     );
 
+    /**make columns for each array val */
+    $names = array_column($restaurant, 'name');
+    $prices = array_column($restaurant, 'price');
+
+
+    array_multisort($names, SORT_ASC, $restaurant);
+    //array_multisort($prices, SORT_ASC, $restaurant);
     /**sort restaurant array */
-
-    /**alph sort */
-    asort($restaurant, SORT_STRING);
+    //array_multisort($restaurant, SORT_STRING);
     /**num sort, need to go into array */
-    asort($restaurant, SORT_NUMERIC);
+    //array_multisort($restaurant, SORT_NUMERIC);
 
+    /**sort num */
+    function sortNum($arr){
+    }
 
     /**populate table with restaurants */
-    foreach($restaurant as $item => $val) {
-        echo $item.$val['name'].$val['price']."<br>";
+    function populate($arr){
+        foreach($arr as $item => $val) {
+            echo $item.$val['name'].$val['price']."<br>";
+        }
     }
+    populate($restaurant);
     ?>
 </body>
 </html>
